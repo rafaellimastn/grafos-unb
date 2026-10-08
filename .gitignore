@@ -1,11 +1,14 @@
 # Executáveis binários sem extensão
 main
 
+
 # Executáveis binários comuns e compilações
 *.out
 *.exe
 *.o
 *.app
+.vscode
+*.txt
 
 # Arquivos temporários e do sistema
 .DS_Store
