@@ -10,7 +10,7 @@ struct edge {
 };
 
 const int oo = 1e9;
-int N;
+int N = 6;
 vector<edge>edges (N+1);
 
 vector<int> bellman_ford(int s) {
@@ -58,9 +58,30 @@ vector<ii> path(int s, int u, const vector<int>& pred) {
     return p;
 }
 
+bool has_negative_cycle(int s) {
+    vector<int> dist(N + 1, oo);
+    dist[s] = 0;
+
+    // Algoritmo de Bellman-Ford
+    for (int i = 1; i <= N; i++) {
+        for (auto [u, v, w] : edges) {
+            if (dist[u] < oo and dist[v] > dist[u] + w) {
+                dist[v] = dist[u] + w;
+            }
+        }
+    }
+
+    // Verifica mais uma vez, se houver relaxamento, existe um ciclo negativo
+    for (auto[u, v, w] : edges) {
+        if (dist[u] < oo and dist[v] > dist[u] + w) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 int main() {
-    N = 6;
     edges = {
         {1, 2, 9}, {1, 3, 7}, {1, 4, 4},
         {1, 5, 2}, {2, 3, 1}, {2, 6, 3},
