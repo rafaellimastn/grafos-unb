@@ -2,6 +2,7 @@
 
 using namespace std;
 
+using ii = pair<int, int>;
 struct edge {
     int u;
     int v;
@@ -26,6 +27,38 @@ vector<int> bellman_ford(int s) {
     return dist;
 }
 
+pair<vector<int>, vector<int>> bellman_ford_caminho(int s) {
+    vector<int> dist(N+1, oo), pred(N+1, oo);
+
+    dist[s] = 0;
+    pred[s] = s;
+
+    for(int i = 1; i <= N; i++) {
+        for (auto[u, v, w] : edges) {
+            if (dist[u] < oo and dist[v] > dist[u] + w) {
+                dist[v] = dist[u] + w;
+                pred[v] = u;
+            }
+        }
+    }
+    return {dist, pred};
+}
+
+vector<ii> path(int s, int u, const vector<int>& pred) {
+    vector<ii> p;
+    int v = u;
+
+    do {
+        p.push_back( ii(pred[v], v));
+        v = pred[v];
+    } while (v != s);
+
+    reverse(p.begin(), p.end());
+
+    return p;
+}
+
+
 int main() {
     N = 6;
     edges = {
@@ -41,10 +74,18 @@ int main() {
         edges.push_back({v, u, w});
     }
 
-    auto dist = bellman_ford(1);
+    auto [dist, pred] = bellman_ford_caminho(1);
 
     for (int u = 1; u <= N; ++u) {
-        cout << "Distancia minima de 1 a " << u << ": " << dist[u] << '\n';
+        cout << "Custo minimo de 1 a " << u << " = " << dist[u] << ". Caminho: ";
+        auto p = path(1, u, pred);
+        cout << 1;
+        for (auto [de, para] : p) {
+            if (de != para) {
+                cout << " -> " << para;
+            }
+        }
+        cout << '\n';
     }
 
     return 0;
