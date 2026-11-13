@@ -4,19 +4,27 @@ Repositório com os códigos, algoritmos e exercícios práticos da disciplina d
 
 ## Estrutura do Repositório
 
-### 📁 Códigos (`/codigos`)
-Implementações em C++ dos principais algoritmos de representação, travessia e análise de propriedades em grafos:
+### 📁 Algoritmos (`/algoritmos`)
+Implementações em C++ dos principais algoritmos de travessia, propriedades estruturais e caminhos mínimos em grafos, organizados por categoria:
 
-* **Busca em Largura (BFS):** Algoritmo para exploração em nível e cálculo de distâncias em grafos não ponderados (`bfs.cpp`).
-* **Busca em Profundidade (DFS):** Algoritmo de travessia e exploração profunda de vértices e arestas (`dfs.cpp`).
-* **Componentes Conectados:** Algoritmo para identificação de componentes conexos em grafos (`componentes-conectados.cpp`).
-* **Grafos Bipartidos:** Verificação de bipartição em grafos utilizando coloração de vértices (`bipartite.cpp`).
-* **Detecção de Ciclos:** Algoritmo para identificação da presença de ciclos no grafo (`cycles.cpp`).
+* **Buscas (`/algoritmos/buscas`):**
+  * **Busca em Largura (BFS):** Exploração em nível em grafos (`bfs.cpp`).
+  * **Busca em Profundidade (DFS):** Travessia e exploração profunda de vértices e arestas (`dfs.cpp`).
+* **Propriedades (`/algoritmos/propriedades`):**
+  * **Componentes Conectados:** Identificação de componentes conexos em grafos (`componentes-conectados.cpp`).
+  * **Grafos Bipartidos:** Verificação de bipartição utilizando coloração de vértices (`bipartite.cpp`).
+  * **Detecção de Ciclos:** Identificação da presença de ciclos no grafo (`cycles.cpp`).
+* **Caminhos Mínimos (`/algoritmos/caminhos-minimos`):**
+  * **Caminhos Mínimos com BFS:** Cálculo de distâncias mínimas em grafos não ponderados ou de peso constante (`caminhos-minimos.cpp`).
+  * **BFS Binária (0-1 BFS):** Caminhos mínimos em grafos com arestas de peso 0 ou 1 (`bfs-binaria.cpp`).
+  * **Dijkstra:** Caminhos mínimos de fonte única em grafos com pesos não negativos (`dijkstra.cpp`).
+  * **Bellman-Ford:** Caminhos mínimos de fonte única com suporte a pesos negativos e detecção de ciclos negativos (`bellman-ford.cpp`).
+  * **Floyd-Warshall:** Caminhos mínimos entre todos os pares de vértices (`floyd-warshall.cpp`).
 
 ### 📁 Exercícios (`/exercicios`)
 Resolução de exercícios práticos e fixação de conteúdo divididos por aulas e listas de atividades:
 
-* **Aulas (Aula 02 a 05):** Resolução de exercícios práticos abordando conceitos de representação (matriz e lista de adjacência), busca e propriedades estruturais dos grafos.
+* **Aulas (Aula 02 a 09):** Resolução de exercícios práticos abordando representação de grafos, busca, propriedades estruturais e caminhos mínimos (Bellman-Ford, Dijkstra e Floyd-Warshall).
 * **Listas de Exercícios:** Listas aplicadas da disciplina para consolidação teórica e prática.
 
 ## Como compilar e executar
