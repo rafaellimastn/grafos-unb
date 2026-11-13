@@ -71,7 +71,7 @@ bool has_negative_cycle(int s) {
         }
     }
 
-    // Verifica mais uma vez, se houver relaxamento, existe um ciclo negativo
+    // Verifica mais uma vez todas as arestas, se houver relaxamento, existe um ciclo negativo
     for (auto[u, v, w] : edges) {
         if (dist[u] < oo and dist[v] > dist[u] + w) {
             return false;

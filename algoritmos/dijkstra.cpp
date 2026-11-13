@@ -4,7 +4,6 @@ using namespace std;
 
 using ii = pair<int, int>;
 
-
 const int oo {10000010};
 vector<vector<ii>>gs; // vetor de adjacencias (vertice, distancia)
 
